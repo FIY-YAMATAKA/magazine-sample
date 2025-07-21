@@ -1,0 +1,118 @@
+article {
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+article header {
+	padding-bottom: 1rem;
+}
+article h2 {
+	font-size: 2rem;
+	text-align: center;
+	padding: 2rem 1rem;
+	border-bottom: 1px solid rgb(var(--gray3));
+}
+article h2::first-letter {
+	display: inline-block;
+	color: rgb(var(--white2));
+	font-size: 2em;
+	padding: 0.4rem;
+	margin: 0.4rem;
+	background-color: rgb(var(--darkgray1));
+	border-radius: 0.4rem;
+}
+
+.article-body {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+article figure {
+	margin: 0;
+}
+
+article figure img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 0.5rem;
+}
+
+article footer p {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	padding: 1.5rem 1rem;
+}
+article footer time {
+	font-size: 0.8rem;
+}
+article footer .author {
+	font-family: 'Hachi Maru Pop', cursive;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* バックボタン */
+.back-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 0;
+	border-top: 1px solid rgb(var(--gray3));
+}
+.back-container a {
+	padding: 0.4rem 0.8rem;
+	border: none;
+	color: rgb(var(--gray1));
+	border-radius: 0.4rem;
+	cursor: pointer;
+	border: 1px solid transparent;
+}
+.back-container a:hover {
+	border-color: rgb(var(--gray1));
+}
+
+/* エラー表示 */
+#error404 {
+	padding: 2rem 0 4rem 0;
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+#error404 h2 {
+	padding-bottom: 1rem;
+}
+
+/* レスポンシブ：PC表示では横並びに */
+@media (min-width: 768px) {
+	.article-body {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+
+	#topic figure {
+		flex: 0 0 50%;
+	}
+
+	#topic .content {
+		flex: 1;
+	}
+}
+
+/* ======== メディアクエリ：タブレット以上 ======== */
+@media (min-width: 768px) {
+	main {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+	article {
+		font-size: 1.2rem;
+	}
+	article h2 {
+		font-size: 2.4rem;
+		padding: 4rem 1rem;
+	}
+}
+/* ======== メディアクエリ：PC以上 ======== */
+@media (min-width: 1024px) {
+}

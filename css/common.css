@@ -1,0 +1,215 @@
+@charset "utf-8";
+
+/* ======== variables ======== */
+:root {
+	--darkgray1: 34, 34, 34;
+	--darkgray2: 51, 51, 51;
+	--gray1: 102, 102, 102;
+	--gray2: 153, 153, 153;
+	--gray3: 204, 204, 204;
+	--white2: 238, 238, 238;
+	--white1: 255, 255, 255;
+	--lightblue1: 221, 238, 255;
+	--lightblue2: 0, 204, 255;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 16px;
+}
+body {
+	color: rgb(var(--darkgray1));
+	font-family: 'M PLUS 1p', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0;
+	background-color: rgb(var(--white2));
+}
+
+button,
+a {
+	transition: all 0.3s ease;
+}
+
+body > header,
+body > footer {
+	background-color: rgb(var(--darkgray2));
+	color: rgb(var(--white1));
+	text-align: center;
+	padding: 1rem 0;
+}
+
+body > main {
+	padding: 5rem 1rem 1rem 1rem;
+}
+body > footer {
+
+	font-size: 0.8rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 1rem;
+	font-family: 'Kosugi Maru', monospace;
+	font-weight: 400;
+	font-style: normal;
+}
+h1 a{
+	text-decoration: none;
+	color: inherit;
+}
+
+/* ======== google icons ======== */
+.material-icons {
+	font-size: 2rem;
+	vertical-align: middle;
+	padding-bottom: 0.4rem;
+	display: inline-block;
+}
+
+/* ======== ローダー ======== */
+.dot-loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	margin: 50px auto;
+}
+.dot-loader div {
+	width: 0.5rem;
+	height: 0.5rem;
+	background-color: rgb(var(--gray2));
+	border-radius: 50%;
+	animation: bounce 0.6s infinite alternate;
+}
+.dot-loader div:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.dot-loader div:nth-child(3) {
+	animation-delay: 0.4s;
+}
+@keyframes bounce {
+	to {
+		transform: translateY(-15px);
+		opacity: 0.5;
+	}
+}
+
+/* ======== メニュー ======== */
+body > header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	position: fixed;
+	z-index: 9999;
+	width: 100%;
+}
+body > header h1 {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.menu-toggle {
+	position: absolute;
+	right: 1rem;
+	color: rgb(var(--gray3));
+	font-size: 1.5rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: block;
+}
+.menu-toggle:hover {
+	color: rgb(var(--white1));
+}
+.menu-toggle i {
+	display: none;
+}
+.menu-toggle i.active {
+	margin: 0;
+	padding: 0;
+	line-height: 0;
+	display: block;
+}
+
+.nav-menu {
+	display: flex;
+	visibility: hidden;
+	opacity: 0;
+	flex-direction: column;
+	width: 100%;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	transition: opacity 0.4s ease, visibility 0.4s ease;
+	background-color: rgb(var(--white2), 0.8);
+	box-shadow: -0.2rem 0.2rem 0.8rem rgba(var(--darkgray2), 0.4);
+}
+/* メニューが表示される時のクラス */
+.nav-menu.active {
+	visibility: visible;
+	opacity: 1;
+}
+
+.nav-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nav-menu a,
+.nav-menu span {
+	display: block;
+	padding: 1em;
+	text-decoration: none;
+	color: rgb(var(--darkgray2));
+	border-bottom: 1px solid rgb(var(--gray2));
+	opacity: 0.8;
+}
+.nav-menu span {
+	color: rgb(var(--gray2));
+}
+.nav-menu a:hover {
+	color: rgb(var(--darkgray1));
+	background-color: rgb(var(--gray3));
+	text-decoration: underline;
+	opacity: 1;
+}
+
+/* ======== 共通スタイル ======== */
+.section-title {
+	font-size: 1.25rem;
+	border-bottom: 2px solid rgb(var(--gray3));
+	padding-bottom: 0.3rem;
+	margin-top: 2rem;
+}
+
+/* ======== メディアクエリ ======== */
+/* デスクトップ用スタイル（768px以上） */
+@media (min-width: 768px) {
+	main {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+	.nav-menu {
+		position: absolute;
+		flex-direction: row;
+		right: 0;
+		left: auto;
+		width: auto;
+		height: 100vh;
+	}
+	.nav-menu ul {
+		width: auto;
+	}
+	.nav-menu a {
+		padding: 1rem 2rem;
+	}
+}
