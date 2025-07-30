@@ -96,7 +96,7 @@ h1 a{
 }
 @keyframes bounce {
 	to {
-		transform: translateY(-15px);
+		transform: translateY(-1rem);
 		opacity: 0.5;
 	}
 }
